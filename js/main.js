@@ -2,36 +2,64 @@
 //  SEGURO VALE TANTO, SI VALE X+2 VALE TANTO. DSP SI ASEGURA 2 VEHICULOS O MAS TIENE UN DESCUENTO
 //  DEL 20%.
 
-alert("Bienvenido a nuestro sistema de cotización de seguro para su vehículo")
+/*alert("Bienvenido a nuestro sistema de cotización de seguro para su vehículo")
 let rta = ""
 let resultado = 0
 let presupuesto = " "
 let presupuestoConDescuento = " "
 let i = 0
-let cantidadVehiculos = i 
+let cantidadVehiculos = i
 
-function porcentajeVehiculo(valorVehiculo){
+function porcentajeVehiculo(valorVehiculo) {
     return valorVehiculo * 0.20
 }
 
 
-do{
+do {
     let marca = prompt("Ingrese la marca de su vehiculo").toUpperCase()
     let vehiculo = prompt("Ingrese el nombre de su vehiculo").toUpperCase()
     let valorVehiculo = Number(prompt("Ingrese el valor que cuesta su vehiculo en el mercado"))
- 
+
     i = i + 1
     cantidadVehiculos = i
     resultado = porcentajeVehiculo(valorVehiculo)
-    presupuesto = presupuesto +"\n" + marca + " " + vehiculo + "\t$" + resultado 
-    presupuestoConDescuento = presupuestoConDescuento +"\n" + marca + " " + vehiculo + "\t$" + (resultado*0.8)
- 
+    presupuesto = presupuesto + "\n" + marca + " " + vehiculo + "\t$" + resultado
+    presupuestoConDescuento = presupuestoConDescuento + "\n" + marca + " " + vehiculo + "\t$" + (resultado * 0.8)
+
     rta = prompt("¿Desea cotizar el seguro de otro vehículo?(Escriba `NO` para finalizar).").toUpperCase()
-}while(rta != "NO")
+} while (rta != "NO")
 
 
-if(cantidadVehiculos == 1){
+if (cantidadVehiculos == 1) {
     alert("Total: " + presupuesto)
-}else{
+} else {
     alert("¡Felicidades! Al asegurar dos o mas vehículos tiene un descuento del 20%\nTotal:" + presupuesto + "\n\nTotal con descuento:" + presupuestoConDescuento)
+}
+*/
+
+class Producto{
+    constructor(id,nombre,precio,talle,cantidad){
+        this.id= id
+        this.nombre= nombre
+        this.precio= precio
+        this.talle= talle
+        this.cantidad= cantidad
+    }
+    descripcion(){
+        return "id: "+ this.id + 
+        "\n Nombre del producto: "+ this.nombre +
+        "\n Precio: "+ this.precio + 
+        "\n Talle: "+ this.talle + 
+        "\n Cantidad: "+ this.cantidad 
+    }
+}
+
+class Carrito{
+    constructor(){
+        this.listaCarrito= []
+    }
+
+    agregar(producto,cantidad){
+
+    }
 }
