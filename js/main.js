@@ -1,52 +1,16 @@
-//  LE PEDIMOS EL VALOR DEL VEHICULO, SI VALE X EL SEGURO LE CUESTA TANTO, SI VALE X+1 EL
-//  SEGURO VALE TANTO, SI VALE X+2 VALE TANTO. DSP SI ASEGURA 2 VEHICULOS O MAS TIENE UN DESCUENTO
-//  DEL 20%.
-
-/*alert("Bienvenido a nuestro sistema de cotización de seguro para su vehículo")
-let rta = ""
-let resultado = 0
-let presupuesto = " "
-let presupuestoConDescuento = " "
-let i = 0
-let cantidadVehiculos = i
-
-function porcentajeVehiculo(valorVehiculo) {
-    return valorVehiculo * 0.20
-}
-
-
-do {
-    let marca = prompt("Ingrese la marca de su vehiculo").toUpperCase()
-    let vehiculo = prompt("Ingrese el nombre de su vehiculo").toUpperCase()
-    let valorVehiculo = Number(prompt("Ingrese el valor que cuesta su vehiculo en el mercado"))
-
-    i = i + 1
-    cantidadVehiculos = i
-    resultado = porcentajeVehiculo(valorVehiculo)
-    presupuesto = presupuesto + "\n" + marca + " " + vehiculo + "\t$" + resultado
-    presupuestoConDescuento = presupuestoConDescuento + "\n" + marca + " " + vehiculo + "\t$" + (resultado * 0.8)
-
-    rta = prompt("¿Desea cotizar el seguro de otro vehículo?(Escriba `NO` para finalizar).").toUpperCase()
-} while (rta != "NO")
-
-
-if (cantidadVehiculos == 1) {
-    alert("Total: " + presupuesto)
-} else {
-    alert("¡Felicidades! Al asegurar dos o mas vehículos tiene un descuento del 20%\nTotal:" + presupuesto + "\n\nTotal con descuento:" + presupuestoConDescuento)
-}
-*/
-
 class Producto{
     constructor(id,nombre,precio,talle,cantidad){
-        this.id= id
+        this.prenda= prenda
         this.nombre= nombre
         this.precio= precio
         this.talle= talle
         this.cantidad= cantidad
     }
+    aumentaCantidad(cantidad){
+        this.cantidad= this.cantidad + cantidad
+    }
     descripcion(){
-        return "id: "+ this.id + 
+        return "Prenda: "+ this.prenda + 
         "\n Nombre del producto: "+ this.nombre +
         "\n Precio: "+ this.precio + 
         "\n Talle: "+ this.talle + 
@@ -56,10 +20,72 @@ class Producto{
 
 class Carrito{
     constructor(){
-        this.listaCarrito= []
+        this.carrito= []
     }
 
     agregar(producto,cantidad){
-
+        let productoRepetido= this.carrito.some(elemento => elemento.prenda == producto.prenda)
+        if(productoRepetido){
+            producto.aumentaCantidad(cantidad)
+        }else{
+            producto.aumentaCantidad(cantidad)
+            this.carrito.push(producto)
+        }
+    }
+    mostrarProducto(){
+        let productosAgregados= ""
+        this.carrito.forEach(producto =>{
+            productosAgregados= productosAgregados + producto.descripcion()
+        })
+        alert(productosAgregados)
+    }
+    sumaTotal(){
+        return this.carrito.reduce((acumulador,producto)=> acumulador + producto.precio * producto.cantidad,0)
     }
 }
+
+class ControladorDeProductos{
+    constructor(){
+        this.listaProductos= []
+    }
+    agregar(producto){
+        this.listaProductos.push(producto)
+    }
+    visualizarProductos(){
+        let listaParaUsuario= ""
+        this.listaProductos.forEach(producto =>{
+            listaParaUsuario= listaParaUsuario + producto.descripcion()
+        })
+        alert(listaParaUsuario)
+    }
+    buscarProductoPorPrenda(prenda){
+        this.listaProductos.filter(producto =>{
+            return this.listaProductos.find(producto => producto.prenda == prenda)
+        })
+    }
+}
+
+const CP= new ControladorDeProductos()
+const CARRITO= new Carrito()
+
+CP.agregar (new Producto("Remera", "Remera Nike", 1000, "L", 0))
+CP.agregar (new Producto("Pantalon", "Pantalon Jordan", 5000, "M", 0))
+CP.agregar (new Producto("Campera", "Campera Puma", 7000, "L", 0))
+CP.agregar (new Producto("Zapatillas", "Air Force 1", 30000, "43", 0))
+
+let rta= ""
+
+
+do{
+    alert("¿Bienvenido/a a RaimondiStore que producto buscaba?")    
+    CP.visualizarProductos()
+    let producto= CP.buscarProductoPorPrenda(prenda)
+    let cantidad= Number(prompt("Ingrese cuantas unidades desea comprar"))
+    CARRITO.agregar(producto,cantidad)
+    alert("El producto fue añadido con éxito")
+    CARRITO.mostrarProducto()
+
+    rta= prompt("Si desea finalizar su compra escriba OK").toUpperCase()
+}while(rta != "OK")
+
+
