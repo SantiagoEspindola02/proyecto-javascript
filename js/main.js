@@ -1,5 +1,5 @@
 class Producto{
-    constructor(id,nombre,precio,talle,cantidad){
+    constructor(prenda,nombre,precio,talle,cantidad){
         this.prenda= prenda
         this.nombre= nombre
         this.precio= precio
@@ -10,14 +10,14 @@ class Producto{
         this.cantidad= this.cantidad + cantidad
     }
     descripcion(){
-        return "Prenda: "+ this.prenda + 
+        return "\n Prenda: "+ this.prenda + 
         "\n Nombre del producto: "+ this.nombre +
         "\n Precio: "+ this.precio + 
-        "\n Talle: "+ this.talle + 
-        "\n Cantidad: "+ this.cantidad 
+        "\n Talle: "+ this.talle + "\n"  
+        // "\n Cantidad: "+ this.cantidad
     }
 }
-
+    
 class Carrito{
     constructor(){
         this.carrito= []
@@ -59,9 +59,7 @@ class ControladorDeProductos{
         alert(listaParaUsuario)
     }
     buscarProductoPorPrenda(prenda){
-        this.listaProductos.filter(producto =>{
-            return this.listaProductos.find(producto => producto.prenda == prenda)
-        })
+        return this.listaProductos.find(producto => producto.prenda == prenda)
     }
 }
 
@@ -74,12 +72,13 @@ CP.agregar (new Producto("Campera", "Campera Puma", 7000, "L", 0))
 CP.agregar (new Producto("Zapatillas", "Air Force 1", 30000, "43", 0))
 
 let rta= ""
-
+// let prenda= " "
 
 do{
-    alert("¿Bienvenido/a a RaimondiStore que producto buscaba?")    
+    alert("¡Bienvenido/a a RaimondiStore estos son nuestros productos!")    
     CP.visualizarProductos()
-    let producto= CP.buscarProductoPorPrenda(prenda)
+    let opcion= prompt("¿Que prenda deseaba comprar?")
+    let producto= CP.buscarProductoPorPrenda(opcion)
     let cantidad= Number(prompt("Ingrese cuantas unidades desea comprar"))
     CARRITO.agregar(producto,cantidad)
     alert("El producto fue añadido con éxito")
