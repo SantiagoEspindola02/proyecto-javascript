@@ -16,6 +16,12 @@ class Producto{
         "\n Talle: "+ this.talle + "\n"  
         // "\n Cantidad: "+ this.cantidad
     }
+    descripcionCompra(){
+        return "\n Nombre del producto: "+ this.nombre +
+        "\n Precio: "+ this.precio +
+        "\n Talle: " + this.talle +
+        "\n Cantidad: " + this.cantidad
+    }
 }
     
 class Carrito{
@@ -33,9 +39,9 @@ class Carrito{
         }
     }
     mostrarProducto(){
-        let productosAgregados= ""
+        let productosAgregados= "ESTE ES SU CARRITO DE COMPRAS:\n"
         this.carrito.forEach(producto =>{
-            productosAgregados= productosAgregados + producto.descripcion()
+            productosAgregados= productosAgregados + producto.descripcionCompra() + "\n"
         })
         alert(productosAgregados)
     }
@@ -67,7 +73,7 @@ const CP= new ControladorDeProductos()
 const CARRITO= new Carrito()
 
 CP.agregar (new Producto("Remera", "Remera Nike", 1000, "L", 0))
-CP.agregar (new Producto("Pantalon", "Pantalon Jordan", 5000, "M", 0))
+CP.agregar (new Producto("pantalon", "Pantalon Jordan", 5000, "M", 0))
 CP.agregar (new Producto("Campera", "Campera Puma", 7000, "L", 0))
 CP.agregar (new Producto("Zapatillas", "Air Force 1", 30000, "43", 0))
 
@@ -87,4 +93,5 @@ do{
     rta= prompt("Si desea finalizar su compra escriba OK").toUpperCase()
 }while(rta != "OK")
 
+alert("El total de su compra es $" + CARRITO.sumaTotal())
 
