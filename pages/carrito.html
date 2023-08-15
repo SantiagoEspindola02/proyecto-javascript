@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                            <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+                            <!-- ICONOS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+                            <!-- LINKEO CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <title>RaimondiStore</title>
+</head>
+<body>
+    <div class="contenedor">
+        <aside>
+
+            <header>
+                <h1 class="titulo_aside">RaimondiStore</h1>
+            </header>
+    
+            <nav>
+                <ul class="lista_aside">
+                    <li><a class="btn_seguircomprando" href="/index.html"><i class="bi bi-arrow-return-left"></i>Seguir comprando</a></li>
+                    <li><a class="btn_carrito" href="./pages/carrito.html">Carrito<i class="bi bi-cart"></i></a></li>
+                </ul>
+            </nav>
+    
+            <footer>
+                <p class="copyrigth">© Santiago Espindola | 2023</p>
+            </footer>
+    
+        </aside>
+    
+        <main>
+            <h2 class="titulo_principal">Carrito de compras</h2>
+            <div class="contenedor_carrito">
+                <p class="carrito_vacio">Aún no has ingresado productos al carrito.</p>
+                <div class="carrito_productos">
+                    <div class="carrito_producto">
+                        <img class="carrito_producto-img" src="../img/zapatillas/jordan.jpg" alt="jordan">
+                        <div class="carrito_producto-titulo">
+                            <small>Titulo</small>
+                            <h3>Zapatillas Jordan</h3>
+                        </div>
+                        <div class="carrito_producto-cantidad">
+                            <small>Cantidad</small>
+                            <p>1</p>
+                        </div>
+                        <div class="carrito_producto-precio">
+                            <small>Precio</small>
+                            <p>$500</p>
+                        </div>
+                        <div class="carrito_producto-subtotal">
+                            <small>Subtotal</small>
+                            <p>$500</p>
+                        </div>
+                        <button class="carrito_producto-borrar">
+                            <i class="bi bi-trash3-fill"></i>
+                        </button>
+                    </div>
+                    <div class="carrito_producto">
+                        <img class="carrito_producto-img" src="../img/zapatillas/airforce1.jpeg" alt="airforce1">
+                        <div class="carrito_producto-titulo">
+                            <small>Titulo</small>
+                            <h3>Zapatillas Airforce 1</h3>
+                        </div>
+                        <div class="carrito_producto-cantidad">
+                            <small>Cantidad</small>
+                            <p>1</p>
+                        </div>
+                        <div class="carrito_producto-precio">
+                            <small>Precio</small>
+                            <p>$300</p>
+                        </div>
+                        <div class="carrito_producto-subtotal">
+                            <small>Subtotal</small>
+                            <p>$300</p>
+                        </div>
+                        <button class="carrito_producto-borrar">
+                            <i class="bi bi-trash3-fill"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="carrito_eventos">
+                <div class="carrito_eventos-izq">
+                    <button class="carrito_eventos-vaciar">Vaciar carrito</button>
+                </div>
+                <div class="carrito_eventos-derecha">
+                    <div class="carrito_eventos-total">
+                        <p>Total</p>
+                        <p id="total">$800</p>
+                    </div>
+                    <button class="carrito_eventos-comprar">Comprar ahora</button>
+                </div>
+            </div>
+        </main>
+    
+        <script src="../js/main.js"></script>
+    
+    </div>
+</body>
+</html>
