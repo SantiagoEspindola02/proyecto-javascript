@@ -35,7 +35,7 @@
     
         <main>
             <h2 class="titulo_principal">Carrito de compras</h2>
-            <div class="contenedor_carrito">
+            <div class="contenedor_carrito" id="carrito_productos">
                 <p class="carrito_vacio">Aún no has ingresado productos al carrito.</p>
                 <div class="carrito_productos">
                     <div class="carrito_producto">
@@ -57,7 +57,7 @@
                             <p>$500</p>
                         </div>
                         <button class="carrito_producto-borrar">
-                            <i class="bi bi-trash3-fill"></i>
+                            <i class="bi bi-trash3-fill" id="eliminar"></i>
                         </button>
                     </div>
                     <div class="carrito_producto">
@@ -79,7 +79,7 @@
                             <p>$300</p>
                         </div>
                         <button class="carrito_producto-borrar">
-                            <i class="bi bi-trash3-fill"></i>
+                            <i class="bi bi-trash3-fill" id="eliminar"></i>
                         </button>
                     </div>
                 </div>
@@ -93,8 +93,9 @@
                         <p>Total</p>
                         <p id="total">$800</p>
                     </div>
-                    <button class="carrito_eventos-comprar">Comprar ahora</button>
+                    <button class="carrito_eventos-comprar" id="finalizar_compra">Finalizar compra</button>
                 </div>
+                <p class="carrito_comprado">Muchas gracias por tu compra!!</p>
             </div>
         </main>
     
